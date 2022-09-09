@@ -1,0 +1,8 @@
+{% extends 'todo/base.html' %}
+
+{% block container %}
+    {{ todo.title }}  {{ todo.description }} 
+    <br>
+    <a href="{% url 'update' todo.id %}"><button>Update</button></a>
+    <a href="{% url 'delete' todo.id %}"><button>Delete</button></a>
+{% endblock container %}
