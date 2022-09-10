@@ -5,9 +5,17 @@ from .models import Todo
 # Create your views here.
 
 def index(request):
-    todos=Todo.objects.all()
-    context={
-        "todos":todos
+    todos = Todo.objects.all()
+    form = TodoForm()
+    if request.method == "POST":
+        form = TodoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+
+    context = {
+        'form': form,
+        "todos":todos,
     }
     return render(request, 'todo/home.html',context)
 

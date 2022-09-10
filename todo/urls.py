@@ -8,4 +8,5 @@ urlpatterns = [
     path("update/<int:id>",todo_update,name="update"),
     path('delete/<int:id>',todo_delete,name='delete'),
     path('todo/<int:id>', todo_detail, name="detail"),
+ 
 ]
